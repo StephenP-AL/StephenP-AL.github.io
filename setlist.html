@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><title>Creating Music Setlists Algorithmically</title></head><body><h1>Creating Music Setlists Algorithmically</h1><p>
+Last semester I was in an object oriented programming course using Java (which means I had to learn Java). The focus of this course was a group project, for which I managed to convince my teammates to build a setlist manager for live performing musicians.
+</p>
+<p>
+What does it do? First you input every song you know how to play by describing it in terms of key, length, tempo, and genre. 
+</p>
+<p>
+<img src="image/setlist_addsong.png" alt="A form for editing song data; shown is the data for Darude's Sandstorm"/>
+</p>
+<p>
+Then you describe your gig: total length of performance, number and length of breaks, and genres you wish to play.
+</p>
+<p>
+<img src="image/setlist_settings.png" alt="A form describing a set"/>
+</p>
+<p>
+Lastly, you hit generate and enjoy your semi-randomized setlist created to your specifications.
+</p>
+<p>
+<img src="image/setlist.png" alt="A setlist including the classic hits The Fox, Tunak Tunak Tun, and Harlem Shake"/>
+</p>
+<p>
+Notice I said semi-randomized. When building sets it is generally advisable to have your performance vary in key and tempo between songs. 
+</p>
+<p>
+The first song is completely random (to the extent that ArrayList.shuffle() is random). The 2nd, 4th etc. songs will always be a different key from the previous, and the 3rd, 5th etc. songs will never be within 10% of the tempo of the previous. So you might get 2 songs in a row in the same key, but never 3. 
+</p>
+<p>
+My teammates fortunately agreed to release their code under GPL v 2 (all but one, but I think I replaced all of that), so you are free to <a href="https://github.com/DaddyWarcrimes/SetlistManager">download and modify</a> it to your heart's content. If you'd rather just run it as is, here's a <a href="https://www.dropbox.com/s/h337iqe9hm9mnx4/SetlistManager_jar.zip?dl=0">direct download</a> for the compiled jar.
+</p>
+<p>
+Since I'm taking a semester off for various reasons (mostly because classes are all online) I decided to keep my self sharp by rebuilding the entire thing in C++ with ncurses. That project is <a href="https://github.com/DaddyWarcrimes/setlist_cli">also on Github</a>, but not nearly as complete.
+</body></html>

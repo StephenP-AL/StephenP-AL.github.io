@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Daddy Warcrimes</title>
+<subtitle type="text">Daddy Warcrimes Blog</subtitle>
+<updated>2021-12-12T16:35:59Z</updated>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com"/>
+<id>https://daddywarcrimes.com/atom.xml</id>
+<link rel="self" type="application/atom+xml" href="https://daddywarcrimes.com/atom.xml"/>
+<entry>
+<title type="text">Enclosing text using Vim </title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/vimEnclose.html"/>
+<id>https://daddywarcrimes.com/vimEnclose.html</id>
+<published>2021-12-12T16:23:52Z</published>
+<updated>2021-12-12T16:35:56Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">This past semester I managed to do most of my coding in Vim (with the noted exception last minute adjustments of ARM assembly code in the lab, where none of the Raspberry Pi's had Vim installed). Now that the semester is over I've had a little time to reflect on what I might change to enhance my productivity or quality of life. My primary focus was on enclosing text.</summary>
+</entry>
+<entry>
+<title type="text">Advice for Computer Science Students(things they might not teach you in class)</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/schooladvice.html"/>
+<id>https://daddywarcrimes.com/schooladvice.html</id>
+<published>2021-11-24T22:29:37Z</published>
+<updated>2021-11-24T22:29:37Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">I'm by no means a professional academic, nor am I really even a competent programmer, but in my time in school I've observed in my peers (or perhaps fellow CS students; I'm not sure a 40 year old should refer to 20-somethings as peers) a certain lack of proficiency in what I believe are important ancillary skills. Here's a little timeline of skills you probably want to pick up during your training as a computer scientist.</summary>
+</entry>
+<entry>
+<title type="text">Musings on the Comparative Advantages of Systems of Measurement</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/onmeasurement.html"/>
+<id>https://daddywarcrimes.com/onmeasurement.html</id>
+<published>2021-10-04T02:46:39Z</published>
+<updated>2021-10-04T02:46:39Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">For most of my life, I've had persons of various levels of authority tout the virtues of the supposedly scientific metric system, as well as deride the U.S. (of which I hold citizenship) as backwards for continuing to employ the imperial system. By this I mean there was a coordinated campaign carried out by my early educators which seems to have been adopted (although not the metric system itself) by my peers in adulthood.</summary>
+</entry>
+<entry>
+<title type="text">Conditional Content Listing on Directory Change</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/bashrc_cd.html"/>
+<id>https://daddywarcrimes.com/bashrc_cd.html</id>
+<published>2021-10-03T02:34:22Z</published>
+<updated>2021-10-04T02:46:39Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">One of the most popular tweaks to the default Linux command line experience is to alias cd with cd && ls. I too had a variant of this in my .bashrc which went something like this:</summary>
+</entry>
+<entry>
+<title type="text">The Dining Table</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/diningtable.html"/>
+<id>https://daddywarcrimes.com/diningtable.html</id>
+<published>2021-08-31T03:18:41Z</published>
+<updated>2021-10-04T02:46:39Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">For most of my adulthood, I ate my meals at my desk or a restaurant. Kids of course change this, and family meals are now an extremely important part of our day. Unfortunately, a suitable table for our kitchen could not be found within a reasonable price. Rough sawn poplar was of course plentiful and cheap (at least it was when I purchased it; this project took a long time).</summary>
+</entry>
+<entry>
+<title type="text">The CLI Netbook: My experiment in a high utility, console only computer</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/netbook.html"/>
+<id>https://daddywarcrimes.com/netbook.html</id>
+<published>2021-07-08T19:08:03Z</published>
+<updated>2021-08-31T03:24:03Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">This originally appeared on my [Old Blog](https://daddywarcrimes.blogspot.com/) as a series of posts. I've since replaced the hardware with a Thinkpad X220, but much of the software and methods I continue to use on a variety of Linux machines.</summary>
+</entry>
+<entry>
+<title type="text">No stream today</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/_Announcement20210704.html"/>
+<id>https://daddywarcrimes.com/_Announcement20210704.html</id>
+<published>2021-07-04T13:59:42Z</published>
+<updated>2021-07-04T13:59:42Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">I'll not be streaming today so I can celebrate Independence Day with my family.</summary>
+</entry>
+<entry>
+<title type="text">Seeking Internet Independence</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/independence.html"/>
+<id>https://daddywarcrimes.com/independence.html</id>
+<published>2021-07-03T05:20:14Z</published>
+<updated>2021-07-03T05:20:14Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">I have been attempting to slowly, and gradually seek out a more independent Internet lifestyle. By this I mean I want to depend less on companies that can modify or cancel my services at any time for any reason. Recent years have shown a variety of this behavior, from removing or hiding user content, banning accounts (video hosting, DNS listing, or even financial), or even as simple as modifying algorithms such that you no longer see the content you're interested in.</summary>
+</entry>
+<entry>
+<title type="text">Entryway Locker</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/locker.html"/>
+<id>https://daddywarcrimes.com/locker.html</id>
+<published>2021-07-03T05:20:14Z</published>
+<updated>2021-07-03T05:20:14Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">This is my first year with kids, and school presented a number of storage problems with our little hideout. The solution seemed to be this entryway locker system (that's what I'm calling it anyway) where they could store their backpacks, shoes, coats, etc.</summary>
+</entry>
+<entry>
+<title type="text">Creating Music Setlists Algorithmically</title>
+<link rel="alternate" type="text/html" href="https://daddywarcrimes.com/setlist.html"/>
+<id>https://daddywarcrimes.com/setlist.html</id>
+<published>2021-07-03T05:20:14Z</published>
+<updated>2021-07-03T05:20:14Z</updated>
+<author><name>DaddyWarcrimes</name></author>
+<summary type="text">Last semester I was in an object oriented programming course using Java (which means I had to learn Java). The focus of this course was a group project, for which I managed to convince my teammates to build a setlist manager for live performing musicians.</summary>
+</entry>
+</feed>

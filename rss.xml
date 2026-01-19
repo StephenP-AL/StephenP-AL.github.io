@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>Daddy Warcrimes</title>
+<link>https://daddywarcrimes.com</link>
+<description>Daddy Warcrimes Blog</description>
+<item>
+<title>Enclosing text using Vim </title>
+<link>https://daddywarcrimes.com/vimEnclose.html</link>
+<guid>https://daddywarcrimes.com/vimEnclose.html</guid>
+<pubDate>Sun, 12 Dec 2021 16:23:52 +0000</pubDate>
+<description>This past semester I managed to do most of my coding in Vim (with the noted exception last minute adjustments of ARM assembly code in the lab, where none of the Raspberry Pi's had Vim installed). Now that the semester is over I've had a little time to reflect on what I might change to enhance my productivity or quality of life. My primary focus was on enclosing text.</description>
+</item>
+<item>
+<title>Advice for Computer Science Students(things they might not teach you in class)</title>
+<link>https://daddywarcrimes.com/schooladvice.html</link>
+<guid>https://daddywarcrimes.com/schooladvice.html</guid>
+<pubDate>Wed, 24 Nov 2021 22:29:37 +0000</pubDate>
+<description>I'm by no means a professional academic, nor am I really even a competent programmer, but in my time in school I've observed in my peers (or perhaps fellow CS students; I'm not sure a 40 year old should refer to 20-somethings as peers) a certain lack of proficiency in what I believe are important ancillary skills. Here's a little timeline of skills you probably want to pick up during your training as a computer scientist.</description>
+</item>
+<item>
+<title>Musings on the Comparative Advantages of Systems of Measurement</title>
+<link>https://daddywarcrimes.com/onmeasurement.html</link>
+<guid>https://daddywarcrimes.com/onmeasurement.html</guid>
+<pubDate>Mon, 04 Oct 2021 02:46:39 +0000</pubDate>
+<description>For most of my life, I've had persons of various levels of authority tout the virtues of the supposedly scientific metric system, as well as deride the U.S. (of which I hold citizenship) as backwards for continuing to employ the imperial system. By this I mean there was a coordinated campaign carried out by my early educators which seems to have been adopted (although not the metric system itself) by my peers in adulthood.</description>
+</item>
+<item>
+<title>Conditional Content Listing on Directory Change</title>
+<link>https://daddywarcrimes.com/bashrc_cd.html</link>
+<guid>https://daddywarcrimes.com/bashrc_cd.html</guid>
+<pubDate>Sun, 03 Oct 2021 02:34:22 +0000</pubDate>
+<description>One of the most popular tweaks to the default Linux command line experience is to alias cd with cd && ls. I too had a variant of this in my .bashrc which went something like this:</description>
+</item>
+<item>
+<title>The Dining Table</title>
+<link>https://daddywarcrimes.com/diningtable.html</link>
+<guid>https://daddywarcrimes.com/diningtable.html</guid>
+<pubDate>Tue, 31 Aug 2021 03:18:41 +0000</pubDate>
+<description>For most of my adulthood, I ate my meals at my desk or a restaurant. Kids of course change this, and family meals are now an extremely important part of our day. Unfortunately, a suitable table for our kitchen could not be found within a reasonable price. Rough sawn poplar was of course plentiful and cheap (at least it was when I purchased it; this project took a long time).</description>
+</item>
+<item>
+<title>The CLI Netbook: My experiment in a high utility, console only computer</title>
+<link>https://daddywarcrimes.com/netbook.html</link>
+<guid>https://daddywarcrimes.com/netbook.html</guid>
+<pubDate>Thu, 08 Jul 2021 19:08:03 +0000</pubDate>
+<description>This originally appeared on my [Old Blog](https://daddywarcrimes.blogspot.com/) as a series of posts. I've since replaced the hardware with a Thinkpad X220, but much of the software and methods I continue to use on a variety of Linux machines.</description>
+</item>
+<item>
+<title>No stream today</title>
+<link>https://daddywarcrimes.com/_Announcement20210704.html</link>
+<guid>https://daddywarcrimes.com/_Announcement20210704.html</guid>
+<pubDate>Sun, 04 Jul 2021 13:59:42 +0000</pubDate>
+<description>I'll not be streaming today so I can celebrate Independence Day with my family.</description>
+</item>
+<item>
+<title>Seeking Internet Independence</title>
+<link>https://daddywarcrimes.com/independence.html</link>
+<guid>https://daddywarcrimes.com/independence.html</guid>
+<pubDate>Sat, 03 Jul 2021 05:20:14 +0000</pubDate>
+<description>I have been attempting to slowly, and gradually seek out a more independent Internet lifestyle. By this I mean I want to depend less on companies that can modify or cancel my services at any time for any reason. Recent years have shown a variety of this behavior, from removing or hiding user content, banning accounts (video hosting, DNS listing, or even financial), or even as simple as modifying algorithms such that you no longer see the content you're interested in.</description>
+</item>
+<item>
+<title>Entryway Locker</title>
+<link>https://daddywarcrimes.com/locker.html</link>
+<guid>https://daddywarcrimes.com/locker.html</guid>
+<pubDate>Sat, 03 Jul 2021 05:20:14 +0000</pubDate>
+<description>This is my first year with kids, and school presented a number of storage problems with our little hideout. The solution seemed to be this entryway locker system (that's what I'm calling it anyway) where they could store their backpacks, shoes, coats, etc.</description>
+</item>
+<item>
+<title>Creating Music Setlists Algorithmically</title>
+<link>https://daddywarcrimes.com/setlist.html</link>
+<guid>https://daddywarcrimes.com/setlist.html</guid>
+<pubDate>Sat, 03 Jul 2021 05:20:14 +0000</pubDate>
+<description>Last semester I was in an object oriented programming course using Java (which means I had to learn Java). The focus of this course was a group project, for which I managed to convince my teammates to build a setlist manager for live performing musicians.</description>
+</item>
+</channel>
+</rss>

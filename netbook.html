@@ -1,0 +1,285 @@
+<!DOCTYPE html><html><head><title>The CLI Netbook: My experiment in a high utility, console only computer</title></head><body><h1>The CLI Netbook: My experiment in a high utility, console only computer</h1><p>
+This originally appeared on my <a href="https://daddywarcrimes.blogspot.com/">Old Blog</a> as a series of posts. I've since replaced the hardware with a Thinkpad X220, but much of the software and methods I continue to use on a variety of Linux machines.
+</p>
+
+<h1>Introduction</h1>
+<p>
+My main computing machine was a retirement/back to school gift from family. It's a really nice MSI laptop with Nvidia graphics. Because I am likely to need specific software for school (like Visual Studio), and because my Linux installs have had a habit of frying video cards, I'm leaving Windows 10 on this one (but of course I have Ubuntu for Windows on it as well). I'm also not wanting to take this to school unless I actually have a specific need for it, and at this time I don't.
+</p>
+<p>
+My computer science classes are so far introductory, and nothing I have written employs a graphical interface. This new shiny machine is overkill for such tasks.
+</p>
+<p>
+Enter the netbook.
+</p>
+<p>
+<img src="image/netbook_picture.png" alt="Picture of old netbook displaying a Linux login prompt"/>
+</p>
+<p>
+Years ago netbooks were the new fancy tech for people who wanted a computer but didn't actually need a computer while traveling. In my days as an official blogger for the Army Reserve Careers Division, I was issued a netbook and Cisco Flip camera to accommodate all my blogging needs. These have mostly been replaced with tablets and phones, but direct successors like the Chromebook still exist. For one reason or another I wound up with this Gateway LT2104u machine.
+</p>
+<p>
+It's a meager machine circa 2009 with an Atom processor and 1GB of RAM. It originally came with a 240GB HDD, but a few nights ago I replaced that with a spare SSD of the same size that came from my old desktop. I'm also going to double the memory since a 2GB DDR 2 chip can be had for under $10 these days (ordered, just waiting for delivery) Originally this device came with Windows 7 starter, but more recently it had known Lubuntu and Trisquel. In order to make maximum use of these resources, I opted for the most minimal OS I could manage: Ubuntu 18.04 with no desktop.
+</p>
+<p>
+Why Ubuntu? Because I am most accustomed to Debian based distros and Debian for some reason wasn't playing nice with my wifi. I would have tried Arch, but they do not maintain a x86 variant.
+</p>
+<p>
+Because this is an experiment, I made a lot of mistakes, which means I got really proficient at reinstalling (I think something like 10 times since I started this project late last year). Several times while trying to address wireless connection I removed all network connectivity from the device.
+Wifi in particular was a problem. While I was readily able to connect to my home wifi (selected on initial install), I couldn't add any new networks no matter how many guides I tried to follow. The school's wifi requires individualized usernames and passwords. While they have a handy python script for Ubuntu, it expects the NM applet to be running (which it is not in a CLI only environment).
+</p>
+<p>
+My remedy was to cheat. I installed Lubuntu desktop in order to add wifi SSID, then switch back to cli mode. In fact I have a script:
+</p>
+
+<pre><code>
+#! /bin/sh 
+sudo cp /etc/default/grub.cli /etc/default/grub 
+sudo update-grub sudo systemctl 
+set-default multi-user.target 
+sudo shutdown -r now
+</code></pre>
+<p>
+where of course /etc/default/grub.cli and it's cousin grub.gui have slightly different settings.
+</p>
+<p>
+This tiny device while ancient by contemporary standards is 1000 times more powerful than my 1980s era desktop. Bear in mind that back then, a top of the line 286 was perfectly suitable for business computing, word processing, spreadsheets, Internet communication, etc. At idle I'm using about 6-7% of my memory and CPU spikes at about 2%. This machine has plenty of potential yet to be explored so long as I'm willing to forgo some of the modern niceties.
+</p>
+
+<h1>Interface</h1>
+<p>
+(Note: All screenshots were taken from my Windows 10 PC using the Ubuntu subsystem accessing my CLI netbook via ssh)
+</p>
+<p>
+The CLI experience of my youth was perfectly functional, but lacked a lot of the conveniences of graphical interfaces. In particular, the inability to simultaneously run multiple programs was a clear disadvantage for DOS.
+</p>
+<p>
+Fortunately, the modern Linux CLI user has Tmux available, and that completely destroys that distinction. Tmux, for the uninitiated is defined as a "terminal multiplexer". It allow the screen to be split into multiple sections called panes, or switch between unseen terminal instances which it calls windows (think multiple desktops if you are accustomed to GUI Linux distros). Screen is another program similar in function to tmux, but I have yet to test it.
+</p>
+<p>
+In a practical sense this means I can edit source code in the left pane, and compile and run on the right. I need only hit ctrl+b then left or right to select between them.
+</p>
+<p>
+<img src="image/netbook_devenv.png" alt="A tmux window showing 3 panes including Vim editing a C++ source file, an empty terminal, and a menu script"/>
+</p>
+<p>
+For programs I might want full screen, such as a web browser, I simply open it in a new window. Tmux has helpful hotkeys for this, or for scripting I can use the command
+</p>
+<p>
+tmux new-window 'program'
+</p>
+<p>
+to call up common applications.
+</p>
+<p>
+Switching between windows is a simple Ctrl+b and a window number  (staring at 0 and incrementing as they are added). 
+</p>
+<p>
+For repeated tasks we want to write scripts, and these scripts should tell us what is going on with the computer. What we want is a menu.
+</p>
+<p>
+<img src="image/netbook_menu.png" alt="A menu script displaying enumerated options"/>
+</p>
+<p>
+In the simplest form, the menu is a script, and each menu item is another script, which calls a sub-menu or a program. That's how I used to do it in the DOS days anyway. Today, and with Linux, my scripting capabilities have expanded somewhat. My menu script runs as a while - loop, the sub-menus are functions, and each menu item is case statement. While it is a beefy 258 lines, it is only one file which can be easily edited without excessive searching. Most of the programs I open in a new tmux window, which allows me to switch between them. The loop on the menu resets it so that I can continue to use the menu immediately after employing one of its functions.
+</p>
+<p>
+The ultimate menu calls are customized depending on the application. The email client and Nethack open in a new window while alsamixer (audio settings) and my network backup script run in panes taking up only 1/4 of the screen.
+</p>
+<p>
+So what does this menu script look like? The main menu simply lists the sub-menus, and the code looks like this:
+</p>
+
+<pre><code>
+while true; do 
+        clear 
+        #menu 
+        echo "Menu" 
+        echo "1. Programs    2. System      3. Tmux" 
+        echo "" 
+        echo "4. Internet    5. Games       6. Coding" 
+ 
+        #user input 
+        read n 
+ 
+        #handling 
+case &#36;n  in 
+                1)      s_programs 
+                        ;; 
+                2)      s_system 
+                        ;;
+                3)      s_tmux
+                        ;;
+                4)      s_web
+                        ;;
+                5)      s_games
+                        ;;
+                6)      s_coding
+                        ;;
+                *)      echo Invalid selection
+                        echo ""
+                        ;;
+        esac
+done
+</code></pre>
+<p>
+The sub-menus are written as functions
+</p>
+
+<pre><code>
+s_system()
+{
+        clear
+        echo "Menu - System"
+        echo "1. Update      2. Backup      3. Shutdown"
+        echo ""
+        echo "4. ALSA Mixer  5. HTOP        6. WIFI"
+        echo ""
+        echo "7. Switch GUI  8. Switch CLI"
+
+        read n
+        case &#36;n in
+                1)      tmux select-pane -L
+                        tmux split-window -v '~/scripts/update.sh'
+                        ;;
+                2)      tmux select-pane -L
+                        tmux split-window -v '~/scripts/backup.sh'
+                        ;;
+                3)      sudo shutdown now &amp;&amp; exit
+                        ;;
+                4)      tmux select-pane -L
+                        tmux split-window -v 'alsamixer'
+                        ;;
+                5)      tmux new-window 'htop'
+                        ;;
+
+                6)      tmux new-window
+                        tmux split-window -v '~/scripts/wifilist.sh'
+                        tmux select pane -U
+                        ;;
+                7)      tmux select-pane -L
+                        tmux split-window -v '~/scripts/gui.sh'
+                        ;;
+                8)      tmux select-pane -L
+                        tmux split-window -v '~/scripts/cli.sh'
+                        ;;
+                *)      clear
+                        ;;
+        esac
+}
+</code></pre>
+<p>
+Note here we have programs opening in new windows, and some in split windows. Menu item 3, a shutdown feature, is specifically designed to accommodate remote shutdown via ssh.
+</p>
+<p>
+While almost all of my scripts reside in the ~/scripts directory, one exception is the script that starts my tmux session. For the sake of convenience, this one resides in my ~/bin directory and has no file extension. To activate, I merely need type 'go' and I am up and running. The initial script connects to an existing tmux session (say if I go from using the netbook directly to sshing form my laptop) or starts a new session. 
+</p>
+<p>
+<img src="image/netbook_mainscreen.png" alt="A tmux window with four panes showing Vim, an empty terminal, a menu script, and a script displaying system information"/>
+</p>
+<p>
+Uponn initialization, it divides the window into 4 panes. 2 on the bottom right side run the menu script and a system info script (showing battery, memory, wifi, etc.) both running in a loop. Above that a command prompt, and the bulk of the screen on the left is a vim session initially displaying the contents of my home directory. 
+</p>
+<p>
+One of my favorite features of tmux is the ability to retain sessions even when not active. This allows me to work on something via ssh from my Windows machine, and pick up exactly where I left off from my netbook in another room. Or, I can invoke the update function and backup script over ssh, the detach the session and close my connection (the backup and update will continue without my supervision.
+</p>
+
+<h1>Productivity</h1>
+<p>
+If we're going to have a useful command line only machine we are going to have to recognize a couple of fundamental truths.
+</p>
+<p>
+Firstly: Many of the common tasks we perform with computers today used to be done with computers prior to adoption of graphic interfaces. My old 286 ran MS Word just fine. Email, spreadsheets, relational databases; these all came into being in the 1970s.
+</p>
+<p>
+Second: The terminal ways of doing things are going to be different from the GUI methods. Information will not be in images but in text, we will have menus instead of buttons, and you might as well leave the mouse at home.
+</p>
+<p>
+First let's look at text editing. Ubuntu comes with Nano, a very basic editor which is suitable for writing short scripts but not much else. I'm mostly working with Vim as my editor (Vim itself is a topic that could fill volumes), but this is not well suited for letters, prose, or anything meant for human eyes. For this I installed WordGrinder, but honestly I haven't yet had a need for it.
+</p>
+<p>
+<img src="image/netbook_wordgrinder.png" alt="WordGrinder displaying Lorem Ipsum"/>
+</p>
+<p>
+For spreadsheets I have sc, but fortunately do not really need it on that machine. It's keybindings are a bit peculiar (somewhat less so if you are used to Vim) but you can write basic formulas quickly if needed. Real proficiency would expect to take a lot of practice. The biggest drawback is that sc uses it's own file format (which I think is only recognized by Gnumeric) and does not recognize any other spreadsheet style (not even csv, but I'm planning on writing a converter some day). It's there if I need it, but I'm not likely to do anything collaborative in that area.
+</p>
+<p>
+<img src="image/netbook_sc.png" alt="A simple spreadsheet calculating lumber costs in SC"/>
+</p>
+<p>
+There are a few CLI options for email, but I opted for Mutt. I found Mutt a bit tricky to set up with Gmail, but eventually got it working. I did have to disable some security protections for my account, but it is a throw-away account that I simply forward to from others.
+</p>
+<p>
+Calendars go hand and hand with email these days, but while CLI Google calendar tools exist, I'm opting for a more native tool. The built in calendar command might seem at first glance to be nothing more than nerd trivia, but it has potential if properly configured. I use custom written calendar files for one time appointments, weekly events like my college classes, or annual occurrences like birthdays. Currently I have to edit these manually in Vim, but I'm currently writing a small utility to help me manage it in a more automated manner.
+</p>
+<p>
+For internet browsing I'm mostly using Links, but also have Lynx for variety's sake. Links can handle a little bit of javascript where Lynx seems completely unable to. W3M is another popular option, but I haven't felt the need to use it.
+</p>
+<p>
+<img src="image/netbook_links.png" alt="My old blog as displayed in Links... blogception"/>
+</p>
+<p>
+Web browsing is a real weakness in the CLI environment as most websites are designed around graphical browsers. Images, banners, menus and dividers that crowd the margins are mostly wasted for the text based browser. I often find myself scrolling through 2 pages before getting to the actual subject matter. I don't think there is a realistic browser based remedy for diverse site designs, and there is no hope for a design solution for such an insignificant market share.
+</p>
+
+<h1>Entertainment </h1>
+<p>
+My entertainment options in a text only environment are obviously going to be a bit limited, but so bad as you might think.
+</p>
+<p>
+For viewing still images, I have fim, which somehow is able to draw on the screen without the X windows manager. It's not great, but it works well enough. With some tweeking, I was even able to get the Links browser to redirect image files to it for more seamless browsing. Fim doesn't work well over ssh so I'll be omitting screenshots.
+</p>
+<p>
+For music, there is Music On Console (MOC) which is a well thought out jukebox with an intuitive interface. It supports playlists, shuffle, EQ, and a whole a bunch of other features I haven't really bothered with.
+</p>
+<p>
+<img src="image/netbook_moc.png" alt="Music on Console"/>
+</p>
+<p>
+While functional as a stand alone music player, MOC is also well suited for a remotely controllable (via ssh) music player. I could definitely see myself installing it on a Raspberry Pi hooked up to the home stereo while accessing files from a file server on a local network. If nothing else it would be a great way to scare family members who are home alone.
+</p>
+<p>
+Mplayer is also a good option for audio, but isn't as suited to managing playlists or browsing your collection.
+</p>
+<p>
+Of course I also had to install alsamixer in order to easily control audio levels.
+</p>
+<p>
+<img src="image/netbook_alsa.png" alt="alsamixer, not to be confused with a salsa mixer"/>
+</p>
+<p>
+Games are a big limitation, as everything must be represented by ASCII text. We have some classic arcade clones like Pacman (pacman4console), Tetris (vitetris), and Space Invaders (ninvaders)
+</p>
+<p>
+<img src="image/netbook_tetris.png" alt="Tetris clone"/>
+</p>
+<p>
+<img src="image/netbook_ninvaders.png" alt="Space Invaders clone"/>
+</p>
+<p>
+Rogue was also a must have, and it is my favorite console based time waster.
+</p>
+<p>
+<img src="image/netbook_rogue.png" alt="Rogue: the original roguelike"/>
+</p>
+<p>
+These games of course are quite simple, and are from a time of much limited hardware. This machine can handle a lot more complexity, even if it can't tackle the graphics.
+</p>
+<p>
+Dwarf Fortress is an extremely elaborate gaming experience that with a little configuration runs just fine. Really all I had to do was scour the settings for any mention of .PNG images and replace the extension with .BMP. I don't know why exactly this works, but it does.
+</p>
+<p>
+<img src="image/netbook_df.png" alt="I am a dwarf and I'm digging a hole.... diggy diggy hole"/>
+</p>
+<p>
+Video is kind of possible, but we're really just talking about the VLC ASCII conversion. For this I added a script to /usr/local/bin to add the required arguments:
+</p>
+
+<pre><code>
+#! /bin/sh
+cvlc -V caca "&#36;1"
+</code></pre>
+<p>
+Not really practical, but maybe it will impress your local LUG.
+</p>
+</body></html>

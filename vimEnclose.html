@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>Enclosing text using Vim </title></head><body><h1>Enclosing text using Vim </h1><p>
+This past semester I managed to do most of my coding in Vim (with the noted exception last minute adjustments of ARM assembly code in the lab, where none of the Raspberry Pi's had Vim installed). Now that the semester is over I've had a little time to reflect on what I might change to enhance my productivity or quality of life. My primary focus was on enclosing text.
+</p>
+
+<h1>Auto-enclose</h1>
+<p>
+I started with the basic stuff: parenthesis, brackets, and quotations auto-closing. While there are a plethora plugins that will do this (and likely well), I opted instead to do a little remapping in .vimrc. 
+</p>
+<p>
+There are the simple and obvious ones:
+</p>
+<p>
+Closes the parenthesis and repositions the cursor in between them.
+</p>
+<p>
+<code></code><code>inoremap ( ()&lt;Left&gt;</code><code></code>
+</p>
+<p>
+Creates a new line between the curly brackets
+</p>
+<p>
+<code></code><code>inoremap {&lt;cr&gt; {&lt;cr&gt;}O</code><code></code>
+</p>
+<p>
+I stole this, so I don't really know why it works. The function is to skip over an closing parenthesis if it happens to be the next character.
+</p>
+<p>
+<code></code><code>inoremap &lt;expr&gt; )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\&lt;Right&gt;" : ")"</code><code></code>
+</p>
+<p>
+Many of my remaps start with ";;" because I don't expect to actually need to type that in any code. I opted to use this to find the closing brackets
+</p>
+<p>
+<code></code><code>inoremap ;;) &lt;esc&gt;/)&lt;Enter&gt;a</code><code></code>
+</p>
+
+<h1>Deliberate enclosure</h1>
+<p>
+The auto-enclose works pretty well (but does take some getting used to), but many times, I discovered, I needed to add quotes or brackets around text post ex facto. 
+</p>
+<p>
+For single words I used "vv" as the signal because I could think of no words that begin with "vv", and it reminded me of selecting words using visual mode.
+</p>
+<p>
+<code></code><code>inoremap vv" &lt;esc&gt;bi"&lt;esc&gt;ea"</code><code></code>
+</p>
+<p>
+To enclose whole lines, I just started with "vvv".
+</p>
+<p>
+<code></code><code>inoremap vvv(	&lt;esc&gt;0i(&lt;esc&gt;A)</code><code></code>
+</p>
+<p>
+The real fun begins when we use visual mode. Here we can enclose the selected text regardless of new lines or whitespace.
+</p>
+<p>
+<code></code><code>vnoremap ;;( &lt;esc&gt;</code>&lt;i(&lt;esc&gt;<code>&gt;a)&lt;esc&gt;</code><code></code>
+</p>
+<p>
+Even better, we can add language specific comment blocks to our code.
+</p>
+<p>
+<code></code><code>autocmd FileType cpp vnoremap ;;c &lt;esc&gt;</code>&lt;i/*&lt;space&gt;&lt;cr&gt;&lt;esc&gt;<code>&gt;a&lt;cr&gt;*/&lt;esc&gt;</code><code></code>
+</p>
+<p>
+Here endeth the primer. Now go forth and experiment with your own .vimrc
+</body></html>

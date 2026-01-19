@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><title>Conditional Content Listing on Directory Change</title></head><body><h1>Conditional Content Listing on Directory Change</h1><p>
+One of the most popular tweaks to the default Linux command line experience is to alias cd with cd &amp;&amp; ls. I too had a variant of this in my .bashrc which went something like this:
+</p>
+<p>
+<code></code><code>builtin cd "$@" &amp;&amp; pwd &amp;&amp; ls -shF</code><code></code>
+</p>
+<p>
+Recently, however, I've been working in a directory with over 2000 files, and it seems a bit preposterous to list them all. My new alias is a bit more complex, but prevents my screen from being overwhelmed with file listings. 
+</p>
+<p>
+The first thing I do is add a conditional based upon the number of files in the directory.
+</p>
+<p>
+<code></code><code>if [ $(ls | wc -l) -lt 50];</code><code></code>
+</p>
+<p>
+I've set the cutoff at 50 for now, but it's easy enough to change. Anything under that threshold will display normally, but when we get into large collections it triggers this line:
+</p>
+<p>
+<code></code><code> else echo "$(ls -p | grep -v / | wc -l) files" &amp;&amp; ls -d */ 2&gt; /dev/null;</code><code></code>
+</p>
+<p>
+The first part (before the '&amp;&amp;') gives a count of non-directory files. Then it gives a listing of all subdirectories. Note I've also redirected the stderr (2&gt;) to /dev/null because it would have otherwise displayed an error every time you navigate to a directory with no subdirectories.
+</p>
+<p>
+Full .bashrc entry:
+</p>
+<p>
+<code></code><code># CD also does PWD and LS</code><code></code>
+</p>
+<p>
+<code></code><code>function cd {</code><code></code>
+</p>
+<p>
+<code></code><code>builtin cd "$@" &amp;&amp; pwd &amp;&amp; if [ $(ls | wc -l) -lt 50 ]; then ls -s -h -F; else echo "$(ls -p | grep -v / | wc -l) files" &amp;&amp; ls -d */ 2&gt; /dev/null; fi</code><code></code>
+</p>
+<p>
+<code></code><code>}</code><code></code>
+</p>
+</body></html>

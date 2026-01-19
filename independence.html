@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><title>Seeking Internet Independence</title></head><body><h1>Seeking Internet Independence</h1><p>
+I have been attempting to slowly, and gradually seek out a more independent Internet lifestyle. By this I mean I want to depend less on companies that can modify or cancel my services at any time for any reason. Recent years have shown a variety of this behavior, from removing or hiding user content, banning accounts (video hosting, DNS listing, or even financial), or even as simple as modifying algorithms such that you no longer see the content you're interested in.
+</p>
+<p>
+While it is certainly possible and relatively simple to replace offending web services with others (e.g. using <a href="https://duckduckgo.com/">DuckDuckGo</a> in place of Google) this just shifts the problem from one provider to another. While this may be immeasurably preferable in terms of privacy, and honest search results, it does not alleviate the problem of control. 
+</p>
+
+<h1>Website</h1>
+<p>
+The largest part of this effort, in fact, is this website. For many years I had published content (inconsistently) on <a href="https://daddywarcrimes.blogspot.com/">Blogger</a>. Not only is this not under my control, but it is a Google product. Google is especially dangerous as an interruption of their service can have an extremely widespread impact depending on your level of adoption. If your Youtube channel is blocked (for legitimate, accidental, or a simple misunderstanding) you may lose access to your email, cloud storage, and productivity software as collateral damage. 
+</p>
+<p>
+Daddywarcrimes.com OTOH is a paid Linux VPS for which I have sudo access. The only software I employ for managing the content is <a href="https://www.vim.org/">Vim</a> and <a href="https://pedantic.software/git/blogit/">Blogit</a>. While my host can certainly terminate my services, they are far less likely than Google to ban me for content, or to abandon the service entirely. If that does happen I can hire a new VPS (or in the worst case set up a Raspberry Pi on my home network), restore my files from backup, and redirect the DNS. The remaining weakness is the DNS (which is why I do not use GoDaddy). The remedy for this appears to be <a href="https://ipfs.io">IPFS</a>, but that will be a later project.
+</p>
+
+<h1>Public Communication</h1>
+<p>
+The main hurdle I'm running into with building a site from scratch is having reader comments for each page. I was able to enable Disqus based comments, but after some though decided to remove those as they create dependence, and are not under my control. There are a number of self hosted comment softwares available (looking at <a href="https://posativ.org/isso/">Isso</a> at the moment) but the setup seems a bit overly complex for someone as new to web development as I am (my HTML knowledge is from the 90s, and I just started experimenting with CSS this month).
+</p>
+<p>
+Communication with my viewers can be handled by old technology or new. The old way  is the RSS feed; yes those still work. <a href="https://pedantic.software/git/blogit/">Blogit</a> generates the feed automatically for every new article (and I can also use it for brief announcements). Grab an app (I use <a href="https://tughi.github.io/aggregator-android/">Aggregator</a> because it has no ads), point it to whatever feeds you like, and you're done. No emails, no account creation, no giving up your personal information to advertisers.
+</p>
+<p>
+For a newer approach, we could employ a de-centralized social media platform. The Fediverse (e.g. Mastadon) is the first that comes to mind, but hosting my own server seems a bit too costly (I'm running a low-end VPS; compute costs money). Further, users seem to be subject to the whims of their home servers for what sorts of content they can consume. If a user on server A can be completely blocked from viewing content on server B due to server A's policies. Unless each individual runs their own server, you will always have the problem of someone else curating your online experience.
+</p>
+<p>
+<a href="https://scuttlebutt.nz/">Scuttlebutt</a> looks to be my ideal solution. Instead of pinging a centralized server, communication is peer to peer. The major problem (apart from widespread adoption) is data storage and persistence. Since you don't have the central servers, every user has to download, store, and share their entire timeline. While this is probably less bandwidth intensive than ad-ridden bloat sites like Facebook, the disk requirements can get fairly significant. I've actually had a Scuttlebutt account for months now (@ckhMZxL2sFyjyIt7/kknyHuECNxQU9lC0V5wp1NOiO8=.ed25519) but have yet to use it... maybe soon.
+</p>
+<p>
+The biggest issue is adoption. I can implore you to use RSS and Scuttlebutt until the dodo cloned from residual DNA, but it won't make a difference because everyone is on Facebook, <a href="https://twitter.com/DaddyWarcrimes">Twitter</a>, and <a href="https://www.instagram.com/daddywarcrimes/">Insta</a>. Ninja couldn't get his viewers over to Mixer, and I sure as hell won't convince you to create a new account, or download a bit of software if you're only going to follow me. 
+</p>
+<p>
+<a href="https://matrix.org">Matrix</a> seems to address (to an extent) some of the adoption problem by bridging to other platforms and protocols. I still need to explore this one, but it looks very promising.
+</p>
+
+<h1>Video Hosting</h1>
+<p>
+I have in the past published videos on Youtube and Bitchute. Youtube I left for a number of reasons, but mostly because the platform, by it's behavior, indicates that it does not want small creators like me. BitChute was promising because of their (claimed) employment of WebTorrent, which could potentially have saved the small company a lot in bandwidth costs (part of the problem with running a video streaming site). However, BitChute has a lot of technical issues, like videos becoming inexplicably unplayable after upload, less than persistent login, no real recommendation feature, and a basically useless search function. <a href="https://lbry.com/">LBRY</a> seems a good alternative (exploring that now), with good search and good recommendations. LBRY's content also has a much broader scope than BitChute. <a href="https://joinpeertube.org/">PeerTube</a> looks very promising, but would currently require more VPS compute costs than I'm currently willing to bear. 
+</p>
+<p>
+Of course, editing video is not fun, which is largely why I don't do it. <a href="https://twitch.tv/daddy_warcrimes">Twitch</a> will be where I stream until they go defunct, kick me off, or something better takes off.
+</p>
+
+<h1>Finances</h1>
+<p>
+Online financial independence is likely to be the largest pain in the ass so far. While everything I've touched on so far is possible, just harder and with fewer potential views, there are still too many areas of modern life that are nigh impossible without traditional banking apparatus. I have avoided some of the online payment services (PayPal, Patreon, etc.) because of their habits of removing customers for political reasons (not that traditional banks don't, they are just as of yet unavoidable). PayPal is particularly risky as chargeback fraud can leave the recipient liable for more than the transferred sums. 
+</p>
+<p>
+Cryptocurrencies have amazing potential, and are starting to gain mainstream adoption, but they also have some pretty serious downsides. Firstly is the problem of folks using coin as investment rather than as money. This (I'm speculating here; I am not an expert by any means) causes the value to fluctuate wildly. I expect the price to stabilize as more people and businesses begin to exchange coin for goods and services as intended. Next is that coin transfers take a long time (hours in some cases) for transfers to verify. While this is not a problem for mail order purchases, or regular accounts where credit is established (say your water bill), it is probably unsuitable for grabbing coffee and donuts on the way to work. While this is not a problem for mail order purchases, or regular accounts where credit is established (say your water bill), it is probably unsuitable for grabbing coffee and donuts on the way to work. In these scenarios, cash transactions would still work, but that comes with its own risks.
+</p>
+<p>
+The biggest problems with crypto are probably with custodial wallets. In this configuration, you essentially have a bank without the benefits of government oversight. We've seen exchanges hacked, and users' assets stolen. In the event of government regulation, the custodial wallets will be the most impacted (likely non-custodial will not be impacted at all). For the purpose of digital independence, maintaining your own wallet is the only way to go. I'm not completely there myself, but I do maintain a wallet and blockchain for one coin. I want to be able to accept a variety of coins, and it makes more sense to me to have most of those on an exchange.
+</p>
+
+<h1>Summary</h1>
+<p>
+So that's the tentative plan. I still have a long way to go, as does the rest of the world. Fortunately we have the diligent developers over at <a href="https://brave.com">Brave</a> have done remarkable work integrating cyrpto, WebTorrent, and IPFS into an already outstanding browser; it should make the new decentralized Internet a bit easier to navigate.
+</p>
+</body></html>
