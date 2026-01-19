@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'Nashville';
+    src: url('font/Nashville.woff2') format('woff2'),
+         url('font/Nashville.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+#frame {
+    width: 100%;
+}
+
+body {
+    background-color: #202020;
+    color: #D8D8D8;
+    width: 1200px;
+    margin: auto;
+    font-size: 20px !important;
+}
+
+a:link {
+    color: #1A0DEA;
+}
+
+a:visited {
+    color: #AA56CA;
+}
+
+p {
+    margin-left: 40px;
+}
+
+ul {
+    margin-left: 40px;
+}
+
+h3 {
+    margin-left: 10px;
+}
+
+#banner_title {
+    margin-left: 10px;
+    margin-top: 0px;
+    padding: 37px;
+    /* font-family: 'Nashville'; */
+    text-shadow: -2px 2px 0 #000;
+    color: #3C4C6D;
+    font-size: 100px;
+    width: 100%;
+    height: 120px;
+}
+
+#banner a:link {
+    color: #3C4C6D;
+    text-decoration: none;
+}
+
+#banner a:visited {
+    color: #3C4C6D;
+    text-decoration: none;
+}
+
+#banner {
+    color: #707070;
+    font-size: 100px;
+    vertical-align: middle;
+    margin-left: 0px;
+    margin-top: 0px;
+    width: 100%;
+    height: 200px;
+    background-image: url("image/dw-background.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 10px 11px 8px -10px #202020,
+                inset 10px -11px 8px -10px #202020;
+}
+
+#corelist {
+    font-size: 30px;
+    display: inline;
+    color: #D8D8D8;
+}
+
+#corelist a:link {
+    color: #D8D8D8;
+    text-decoration: none;
+}
+
+#corelist a:visited {
+    color: #D8D8D8;
+    text-decoration: none;
+}
+
+#corelist a:hover {
+    border-bottom: 1px solid;
+}
+
+#vim {
+    color: #202020;
+    font-size: 9px;
+}
+
+code {
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+pre {
+    padding: .5em;
+    border-radius: 5px;
+    width: 90%;
+    background-color: #282828;
+    margin-left: 55px;
+    border: #7B2919 solid;
+    box-shadow: inset 1px 1px 2px -1px #7B2919,
+                inset -1px -1px 2px -1px #7B2919;
+}
+
+#scaled-frame {
+    margin-left: 3.5%;
+    width: 100%;
+    padding: 20px;
+    border: #7B2919 solid;
+    box-shadow: inset 10px 11px 20px -10px #7B2919,
+                inset -10px -11px 20px -10px #7B2919;
+
+    zoom: 0.85;
+    -moz-transform: scale(0.85);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.85);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.85);
+    -webkit-transform-origin: 0 0;
+}
+
